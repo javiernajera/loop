@@ -11,6 +11,8 @@ jobs:
     name: Deploy to Staging
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      contents: read
     environment:
       name: staging
       url: https://staging.loop.example.com
@@ -50,6 +52,8 @@ jobs:
     name: Deploy to Production
     runs-on: ubuntu-latest
     if: github.event_name == 'release'
+    permissions:
+      contents: read
     environment:
       name: production
       url: https://loop.example.com
