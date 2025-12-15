@@ -1,0 +1,50 @@
+# Automatically label PRs based on changed files
+
+documentation:
+  - '**/*.md'
+  - 'docs/**/*'
+
+dependencies:
+  - 'package.json'
+  - 'package-lock.json'
+  - 'yarn.lock'
+  - 'pnpm-lock.yaml'
+
+ci/cd:
+  - '.github/workflows/**'
+  - '.github/dependabot.yml'
+
+tests:
+  - '**/*.test.js'
+  - '**/*.test.ts'
+  - '**/*.spec.js'
+  - '**/*.spec.ts'
+  - 'test/**/*'
+  - 'tests/**/*'
+  - '__tests__/**/*'
+
+config:
+  - '**/*.config.js'
+  - '**/*.config.ts'
+  - '.eslintrc*'
+  - '.prettierrc*'
+  - 'tsconfig.json'
+  - 'jest.config.*'
+
+frontend:
+  - 'src/client/**/*'
+  - 'src/components/**/*'
+  - 'src/pages/**/*'
+  - 'public/**/*'
+
+backend:
+  - 'src/server/**/*'
+  - 'src/api/**/*'
+  - 'src/services/**/*'
+  - 'src/models/**/*'
+
+database:
+  - 'migrations/**/*'
+  - 'seeds/**/*'
+  - 'prisma/**/*'
+  - 'schema/**/*'
