@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loop — You’re in</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background-image: url('/assets/loop-background.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    @media (max-width: 640px) { body { background-attachment: scroll; } }
+
+    .loop-shimmer {
+      display: inline-block;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: transparent;
+      background-image: linear-gradient(
+        110deg,
+        #b0892f 0%,
+        #f3f4f6 20%,
+        #bfc5cc 40%,
+        #f5d77a 60%,
+        #d1d5db 80%,
+        #b0892f 100%
+      );
+      background-size: 250% 100%;
+      background-position: 0% 50%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmer 4.5s linear infinite;
+      will-change: background-position;
+      text-shadow: 0 0 1px rgba(0,0,0,0.15);
+    }
+    @keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+    @media (prefers-reduced-motion: reduce) { .loop-shimmer { animation: none; } }
+  </style>
+</head>
+
+<body class="min-h-screen text-stone-900 antialiased">
+  <div class="min-h-screen bg-stone-50/70 backdrop-blur-sm">
+    <div class="max-w-2xl mx-auto px-6 py-24">
+
+      <header class="mb-10">
+        <div class="flex items-center justify-between">
+          <p class="uppercase tracking-widest text-xs text-stone-500">Loop</p>
+          <nav class="text-sm text-stone-600 space-x-4">
+            <a class="underline hover:text-stone-900" href="/index.html">Home</a>
+            <a class="underline hover:text-stone-900" href="/faq.html">FAQ</a>
+          </nav>
+        </div>
+      </header>
+
+      <main class="rounded-xl border border-stone-200 bg-white/55 p-8">
+        <h1 class="text-3xl font-semibold leading-tight">
+          You’re in.
+        </h1>
+
+        <p class="mt-4 text-stone-700 leading-relaxed">
+          Thanks for joining Loop. If you don’t see anything from us soon, check your spam/promotions folder.
+        </p>
+
+        <p id="emailLine" class="mt-3 text-sm text-stone-600"></p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a href="/index.html"
+             class="inline-flex justify-center px-5 py-3 rounded-md bg-stone-900 text-stone-50 hover:bg-stone-800 transition">
+            Back to home
+          </a>
+
+          <a href="/faq.html"
+             class="inline-flex justify-center px-5 py-3 rounded-md border border-stone-300 bg-white/70 hover:bg-white transition">
+            Read the FAQ
+          </a>
+        </div>
+
+        <p class="mt-8 text-stone-400 text-sm">
+          Built for musicians. Slow by design.
+        </p>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Show email (optional) -->
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get("email");
+    if (email) {
+      const el = document.getElementById("emailLine");
+      el.textContent = `We saved: ${email}`;
+    }
+  </script>
+
+  <!-- Global Loop shimmer -->
+  <script>
+    (function () {
+      const SHIMMER_CLASS = "loop-shimmer";
+      const TARGET_WORD = "Loop";
+      const EXCLUDED_TAGS = new Set(["SCRIPT","STYLE","TEXTAREA","INPUT","CODE","PRE"]);
+
+      function wrapTextNodes(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.nodeValue;
+          if (!text || !text.includes(TARGET_WORD)) return;
+
+          const frag = document.createDocumentFragment();
+          let lastIndex = 0;
+
+          text.replace(new RegExp(`\\b${TARGET_WORD}\\b`, "g"), (match, index) => {
+            if (index > lastIndex) frag.appendChild(document.createTextNode(text.slice(lastIndex, index)));
+            const span = document.createElement("span");
+            span.textContent = match;
+            span.className = SHIMMER_CLASS;
+            frag.appendChild(span);
+            lastIndex = index + match.length;
+          });
+
+          if (lastIndex < text.length) frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+          node.parentNode.replaceChild(frag, node);
+          return;
+        }
+
+        if (node.nodeType === Node.ELEMENT_NODE && !EXCLUDED_TAGS.has(node.tagName)) {
+          [...node.childNodes].forEach(wrapTextNodes);
+        }
+      }
+
+      wrapTextNodes(document.body);
+
+      let ticking = false;
+      function updateShimmer() {
+        const doc = document.documentElement;
+        const scrollTop = doc.scrollTop || document.body.scrollTop;
+        const maxScroll = (doc.scrollHeight - doc.clientHeight) || 1;
+        const t = Math.min(1, Math.max(0, scrollTop / maxScroll));
+        const pos = (t * 200).toFixed(2);
+
+        document.querySelectorAll("." + SHIMMER_CLASS).forEach(el => {
+          el.style.backgroundPosition = `${pos}% 50%`;
+        });
+        ticking = false;
+      }
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) { requestAnimationFrame(updateShimmer); ticking = true; }
+      }, { passive: true });
+
+      updateShimmer();
+    })();
+  </script>
+</body>
+</html>

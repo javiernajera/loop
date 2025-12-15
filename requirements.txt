@@ -1,0 +1,4 @@
+# Python dependencies for the Loop app
+boto3>=1.28.0
+botocore>=1.31.0
+dataclasses-json>=0.6.2  # if you want JSON serialization (not used in the code but handy)

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loop — compatibility survey</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Background + shimmer styles (same as index) -->
+  <style>
+    body {
+      background-image: url('/assets/loop-background.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    @media (max-width: 640px) {
+      body { background-attachment: scroll; }
+    }
+
+    /* Loop shimmer (same as index) */
+    .loop-shimmer {
+      display: inline-block;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: transparent;
+      background-image: linear-gradient(
+        110deg,
+        #b0892f 0%,
+        #f3f4f6 20%,
+        #bfc5cc 40%,
+        #f5d77a 60%,
+        #d1d5db 80%,
+        #b0892f 100%
+      );
+      background-size: 250% 100%;
+      background-position: 0% 50%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmer 4.5s linear infinite;
+      text-shadow: 0 0 1px rgba(0,0,0,0.15);
+    }
+
+    @keyframes shimmer {
+      0%   { background-position: 0% 50%; }
+      100% { background-position: 200% 50%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .loop-shimmer { animation: none; }
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-stone-900 antialiased">
+
+  <!-- Soft paper overlay -->
+  <div class="min-h-screen bg-stone-50/70 backdrop-blur-sm">
+    <div class="max-w-3xl mx-auto px-6 py-20">
+
+      <!-- Header -->
+      <header class="mb-14">
+        <div class="flex items-center justify-between mb-8">
+          <p class="uppercase tracking-widest text-xs text-stone-500">
+            <span class="loop-shimmer">Loop</span>
+          </p>
+          <a href="/faq.html" class="text-sm underline text-stone-600 hover:text-stone-900">
+            FAQ
+          </a>
+        </div>
+
+        <h1 class="text-4xl md:text-5xl font-semibold leading-tight mb-4">
+          Quick compatibility survey
+        </h1>
+
+        <p class="text-lg text-stone-600 max-w-2xl">
+          We use this to introduce you to a local musician who’s a good fit to collaborate with.
+          No photos. No feeds. One email per week.
+        </p>
+
+        <p class="text-sm text-stone-500 mt-3">
+          Takes ~2–3 minutes.
+        </p>
+      </header>
+
+      <!-- Survey Card -->
+      <section class="bg-white/80 border border-stone-200 rounded-xl p-6 md:p-8 shadow-sm">
+        <p id="statusMsg" class="mb-4 text-sm text-stone-600"></p>
+
+        <form id="surveyForm" class="space-y-8">
+
+          <!-- Basics -->
+          <div>
+            <h2 class="text-lg font-medium mb-4">Basics</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-stone-700 mb-1">First name (optional)</label>
+                <input
+                  name="firstName"
+                  type="text"
+                  placeholder="e.g. Javier"
+                  class="w-full px-4 py-3 rounded-md border border-stone-300
+                         focus:outline-none focus:ring-2 focus:ring-stone-400"
+                />
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-stone-700 mb-1">Age range</label>
+                <select
+                  name="ageRange"
+                  required
+                  class="w-full px-4 py-3 rounded-md border border-stone-300
+                         focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+                >
+                  <option value="">Select…</option>
+                  <option value="18-24">18–24</option>
+                  <option value="25-34">25–34</option>
+                  <option value="35-44">35–44</option>
+                  <option value="45-54">45–54</option>
+                  <option value="55+">55+</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-stone-700 mb-1">What are you looking for?</label>
+              <select
+                name="relationshipGoal"
+                required
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+              >
+                <option value="">Select…</option>
+                <option value="serious">Serious relationship</option>
+                <option value="dating">Dating / getting to know people</option>
+                <option value="friends">Friends / community</option>
+                <option value="not_sure">Not sure yet</option>
+              </select>
+              <p class="text-xs text-stone-500 mt-2">If Loop is purely music-collab for now, we can later rename this to “collab goal.”</p>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-stone-700 mb-1">Where are you based? (optional)</label>
+              <input
+                name="locationGeneral"
+                type="text"
+                placeholder="City / region (general)"
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400"
+              />
+              <p class="text-xs text-stone-500 mt-2">Keep it general (no address).</p>
+            </div>
+          </div>
+
+          <hr class="border-stone-200" />
+
+          <!-- Music / collaboration compatibility -->
+          <div>
+            <h2 class="text-lg font-medium mb-4">Collaboration fit</h2>
+
+            <div>
+              <label class="block text-sm font-medium text-stone-700 mb-1">What kind of collaboration do you want most?</label>
+              <select
+                name="collabType"
+                required
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+              >
+                <option value="">Select…</option>
+                <option value="songwriting">Songwriting</option>
+                <option value="production">Production / beats</option>
+                <option value="recording">Recording / engineering</option>
+                <option value="performance">Performance / gigging</option>
+                <option value="jam">Casual jamming</option>
+                <option value="mix">A mix</option>
+              </select>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-stone-700 mb-1">Your role (pick closest)</label>
+              <select
+                name="musicRole"
+                required
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+              >
+                <option value="">Select…</option>
+                <option value="vocalist">Vocalist</option>
+                <option value="producer">Producer</option>
+                <option value="instrumentalist">Instrumentalist</option>
+                <option value="songwriter">Songwriter</option>
+                <option value="rapper">Rapper</option>
+                <option value="dj">DJ</option>
+                <option value="engineer">Engineer</option>
+                <option value="other">Other / hybrid</option>
+              </select>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-stone-700 mb-1">Genres you’re most into (comma-separated)</label>
+              <input
+                name="genres"
+                type="text"
+                placeholder="e.g. indie, trap, house, jazz, corridos…"
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400"
+              />
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-stone-700 mb-1">How often do you want to collaborate?</label>
+              <select
+                name="collabFrequency"
+                required
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+              >
+                <option value="">Select…</option>
+                <option value="weekly">Weekly</option>
+                <option value="biweekly">Every other week</option>
+                <option value="monthly">Monthly</option>
+                <option value="ad_hoc">Ad hoc / whenever</option>
+              </select>
+            </div>
+          </div>
+
+          <hr class="border-stone-200" />
+
+          <!-- Personality / communication compatibility -->
+          <div>
+            <h2 class="text-lg font-medium mb-4">Compatibility</h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-stone-700 mb-1">Your social energy</label>
+                <select
+                  name="socialEnergy"
+                  required
+                  class="w-full px-4 py-3 rounded-md border border-stone-300
+                         focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+                >
+                  <option value="">Select…</option>
+                  <option value="introvert">More introverted</option>
+                  <option value="ambivert">In the middle</option>
+                  <option value="extrovert">More extroverted</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium text-stone-700 mb-1">Ideal weekend</label>
+                <select
+                  name="weekendStyle"
+                  required
+                  class="w-full px-4 py-3 rounded-md border border-stone-300
+                         focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+                >
+                  <option value="">Select…</option>
+                  <option value="chill">Chill / recharge</option>
+                  <option value="mix">Mix of chill + plans</option>
+                  <option value="out">Out doing stuff</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-stone-700 mb-1">When there’s conflict, you tend to…</label>
+              <select
+                name="conflictStyle"
+                required
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+              >
+                <option value="">Select…</option>
+                <option value="talk_now">Talk it out ASAP</option>
+                <option value="cool_down">Need time to cool down first</option>
+                <option value="avoid">Avoid conflict if possible</option>
+                <option value="depends">Depends on the situation</option>
+              </select>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-stone-700 mb-1">What makes you feel valued in a collab?</label>
+              <select
+                name="appreciation"
+                required
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+              >
+                <option value="">Select…</option>
+                <option value="clear_feedback">Clear feedback</option>
+                <option value="reliability">Reliability / showing up</option>
+                <option value="creative_space">Creative freedom</option>
+                <option value="recognition">Credit / recognition</option>
+                <option value="good_vibes">Good vibes</option>
+              </select>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-stone-700 mb-1">Pick up to 3 values that matter most</label>
+              <p class="text-xs text-stone-500 mb-2">On desktop: hold Ctrl/Cmd to select multiple.</p>
+              <select
+                id="valuesTop"
+                name="valuesTop"
+                multiple
+                size="8"
+                required
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
+              >
+                <option value="honesty">Honesty</option>
+                <option value="kindness">Kindness</option>
+                <option value="ambition">Ambition</option>
+                <option value="curiosity">Curiosity</option>
+                <option value="humor">Humor</option>
+                <option value="stability">Stability</option>
+                <option value="adventure">Adventure</option>
+                <option value="creativity">Creativity</option>
+                <option value="community">Community</option>
+                <option value="growth">Growth</option>
+              </select>
+            </div>
+
+            <div class="mt-4">
+              <label class="block text-sm font-medium text-stone-700 mb-1">Non-negotiables / dealbreakers (optional)</label>
+              <textarea
+                name="dealbreakers"
+                rows="3"
+                placeholder="e.g., must communicate clearly, no flaking, respectful feedback…"
+                class="w-full px-4 py-3 rounded-md border border-stone-300
+                       focus:outline-none focus:ring-2 focus:ring-stone-400"
+              ></textarea>
+            </div>
+          </div>
+
+          <hr class="border-stone-200" />
+
+          <!-- Fun prompt -->
+          <div>
+            <h2 class="text-lg font-medium mb-4">Fun (helps matching prompts)</h2>
+
+            <label class="block text-sm font-medium text-stone-700 mb-1">Two truths and a lie (optional)</label>
+            <textarea
+              name="twoTruths"
+              rows="3"
+              placeholder="1) …  2) …  3) …"
+              class="w-full px-4 py-3 rounded-md border border-stone-300
+                     focus:outline-none focus:ring-2 focus:ring-stone-400"
+            ></textarea>
+
+            <label class="block text-sm font-medium text-stone-700 mb-1 mt-4">Anything else we should know? (optional)</label>
+            <textarea
+              name="extra"
+              rows="3"
+              class="w-full px-4 py-3 rounded-md border border-stone-300
+                     focus:outline-none focus:ring-2 focus:ring-stone-400"
+            ></textarea>
+          </div>
+
+          <!-- Consent -->
+          <div class="flex items-start gap-3">
+            <input id="consent" name="consent" type="checkbox" value="yes" required class="mt-1" />
+            <label for="consent" class="text-sm text-stone-600">
+              I confirm I’m 18+ and I consent to my responses being used to improve matching.
+            </label>
+          </div>
+
+          <!-- Submit -->
+          <div class="pt-2">
+            <button
+              type="submit"
+              class="w-full sm:w-auto px-6 py-3 rounded-md bg-stone-900 text-stone-50
+                     hover:bg-stone-800 transition"
+            >
+              Submit survey
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <p class="mt-6 text-sm text-stone-500">
+        Questions? <a href="/faq.html" class="underline hover:text-stone-900">Read the FAQ</a>.
+      </p>
+
+      <!-- Footer -->
+      <footer class="mt-16 border-t border-stone-200 pt-10 text-sm text-stone-600">
+        <p>
+          <a href="/faq.html" class="underline hover:text-stone-900">FAQ</a> ·
+          <a href="mailto:hello@loop.fm" class="underline hover:text-stone-900">hello@loop.fm</a>
+        </p>
+        <p class="mt-4 text-stone-400">Built for musicians. Slow by design.</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Survey submit (same style as index submit script) -->
+  <script>
+    // 🔧 Replace with your SURVEY SUBMIT Lambda Function URL
+    const SURVEY_FUNCTION_URL =
+      "https://bqlrerkoqmwfrh3bq6bf5abz7e0pemvy.lambda-url.us-east-1.on.aws/";
+
+    const form = document.getElementById("surveyForm");
+    const statusMsg = document.getElementById("statusMsg");
+
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get("t");
+
+    if (!token) {
+      statusMsg.textContent = "Missing token. Please use the survey link from your email.";
+      form.style.display = "none";
+    }
+
+    function getMultiSelectValues(selectEl) {
+      return Array.from(selectEl.selectedOptions).map(o => o.value);
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      statusMsg.textContent = "Submitting your answers…";
+
+      const raw = Object.fromEntries(new FormData(form).entries());
+
+      // normalize multiselect
+      raw.valuesTop = getMultiSelectValues(document.getElementById("valuesTop"));
+
+      try {
+        const res = await fetch(SURVEY_FUNCTION_URL, {
+          method: "POST",
+          mode: "cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token, answers: raw })
+        });
+
+        const text = await res.text();
+        let data = {};
+        try { data = text ? JSON.parse(text) : {}; } catch { data = {}; }
+
+        if (!res.ok) {
+          statusMsg.textContent = data.error || `Server error (${res.status})`;
+          return;
+        }
+
+        if (data.ok === false) {
+          statusMsg.textContent = data.error || "Something went wrong.";
+          return;
+        }
+
+        // Success: redirect or show thanks state
+        window.location.href = `/thanks.html`;
+
+      } catch (err) {
+        statusMsg.textContent = `Network error: ${err?.message || err}`;
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,819 @@
+{
+    "Items": [
+        {
+            "matched_user_pk": {
+                "S": "synthetic+6-dmlxbg@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+8-sokoji@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:32.187251+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "8"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: grounded"
+            },
+            "gsi1sk": {
+                "N": "8"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+8-sokoji@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+6-dmlxbg@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:32.207223+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "8"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: grounded"
+            },
+            "gsi1sk": {
+                "N": "8"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+5-zitwvk@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+9-ajkgyk@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.707340+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "13"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, compatible signals"
+            },
+            "gsi1sk": {
+                "N": "13"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+9-ajkgyk@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+5-zitwvk@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.747255+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "13"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, compatible signals"
+            },
+            "gsi1sk": {
+                "N": "13"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+20-nvqudb@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+11-cvklal@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:32.247284+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "14"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, compatible signals"
+            },
+            "gsi1sk": {
+                "N": "14"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+11-cvklal@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+20-nvqudb@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:32.287190+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "14"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, compatible signals"
+            },
+            "gsi1sk": {
+                "N": "14"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+18-zxedwe@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+21-uwdohq@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.947272+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "15"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: provocation"
+            },
+            "gsi1sk": {
+                "N": "15"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+21-uwdohq@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+18-zxedwe@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.927268+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "15"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: provocation"
+            },
+            "gsi1sk": {
+                "N": "15"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+27-evbvxr@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+4-erbbaa@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:32.087200+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "16"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: provocation"
+            },
+            "gsi1sk": {
+                "N": "16"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+19-hwggps@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+2-raendv@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.587327+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "16"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, compatible signals"
+            },
+            "gsi1sk": {
+                "N": "16"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+4-erbbaa@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+27-evbvxr@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:32.047261+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "16"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: provocation"
+            },
+            "gsi1sk": {
+                "N": "16"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+2-raendv@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+19-hwggps@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.607212+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "16"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, compatible signals"
+            },
+            "gsi1sk": {
+                "N": "16"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+10-lvrlne@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+12-tkifis@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.887244+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "17"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, compatible signals"
+            },
+            "gsi1sk": {
+                "N": "17"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+12-tkifis@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+10-lvrlne@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.847325+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "17"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, compatible signals"
+            },
+            "gsi1sk": {
+                "N": "17"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+17-uiiikx@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+1-jbgssv@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.987254+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "20"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: reframe"
+            },
+            "gsi1sk": {
+                "N": "20"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+1-jbgssv@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+17-uiiikx@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:32.007266+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "20"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: reframe"
+            },
+            "gsi1sk": {
+                "N": "20"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+16-vmfehw@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+13-zsbomh@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.487234+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "21"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: reframe"
+            },
+            "gsi1sk": {
+                "N": "21"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+13-zsbomh@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+16-vmfehw@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.447490+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "21"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: reframe"
+            },
+            "gsi1sk": {
+                "N": "21"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+29-bzovar@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+22-gxfrth@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:32.107317+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "22"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: stillness"
+            },
+            "gsi1sk": {
+                "N": "22"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+22-gxfrth@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+29-bzovar@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:32.147239+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "22"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: stillness"
+            },
+            "gsi1sk": {
+                "N": "22"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+14-cmjgsm@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+24-qbyenc@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.507387+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "23"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: provocation"
+            },
+            "gsi1sk": {
+                "N": "23"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+25-bjqezn@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+28-upacrb@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.407226+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "23"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: surprise"
+            },
+            "gsi1sk": {
+                "N": "23"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+24-qbyenc@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+14-cmjgsm@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.547245+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "23"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: provocation"
+            },
+            "gsi1sk": {
+                "N": "23"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+28-upacrb@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+25-bjqezn@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.367388+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "23"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: surprise"
+            },
+            "gsi1sk": {
+                "N": "23"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+15-cpjhlf@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+0-sjcwkg@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.647348+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "25"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: novelty"
+            },
+            "gsi1sk": {
+                "N": "25"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+0-sjcwkg@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+15-cpjhlf@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.687263+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "25"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: novelty"
+            },
+            "gsi1sk": {
+                "N": "25"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+7-biozuu@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+26-oqiepf@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.787469+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "26"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: reframe"
+            },
+            "gsi1sk": {
+                "N": "26"
+            }
+        },
+        {
+            "matched_user_pk": {
+                "S": "synthetic+26-oqiepf@example.com"
+            },
+            "user_pk": {
+                "S": "synthetic+7-biozuu@example.com"
+            },
+            "created_at": {
+                "S": "2025-12-15T06:29:31.827258+00:00"
+            },
+            "week_id": {
+                "S": "2025-W51"
+            },
+            "status": {
+                "S": "new"
+            },
+            "score": {
+                "N": "26"
+            },
+            "gsi1pk": {
+                "S": "2025-W51"
+            },
+            "explain": {
+                "S": "nearby phases, shared signal: reframe"
+            },
+            "gsi1sk": {
+                "N": "26"
+            }
+        }
+    ],
+    "Count": 28,
+    "ScannedCount": 28,
+    "ConsumedCapacity": null
+}

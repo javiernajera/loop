@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loop — FAQ</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body {
+      background-image: url('/assets/loop-background.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    @media (max-width: 640px) { body { background-attachment: scroll; } }
+
+    .loop-shimmer {
+      display: inline-block;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: transparent;
+      background-image: linear-gradient(
+        110deg,
+        #b0892f 0%,
+        #f3f4f6 20%,
+        #bfc5cc 40%,
+        #f5d77a 60%,
+        #d1d5db 80%,
+        #b0892f 100%
+      );
+      background-size: 250% 100%;
+      background-position: 0% 50%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmer 4.5s linear infinite;
+      will-change: background-position;
+      text-shadow: 0 0 1px rgba(0,0,0,0.15);
+    }
+    @keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+    @media (prefers-reduced-motion: reduce) { .loop-shimmer { animation: none; } }
+  </style>
+</head>
+
+<body class="min-h-screen text-stone-900 antialiased">
+  <div class="min-h-screen bg-stone-50/70 backdrop-blur-sm">
+    <div class="max-w-3xl mx-auto px-6 py-20">
+
+      <header class="mb-12">
+        <div class="flex items-center justify-between">
+          <p class="uppercase tracking-widest text-xs text-stone-500">
+            Loop
+          </p>
+          <nav class="text-sm text-stone-600 space-x-4">
+            <a class="underline hover:text-stone-900" href="/index.html">Home</a>
+            <a class="underline hover:text-stone-900" href="/faq.html">FAQ</a>
+          </nav>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl font-semibold leading-tight mt-8">
+          Frequently asked questions
+        </h1>
+        <p class="text-stone-600 mt-4 max-w-xl">
+          Loop is a weekly collaboration note. No feeds. No swiping. Just one introduction at a time.
+        </p>
+      </header>
+
+      <main class="space-y-6">
+        <details class="rounded-md border border-stone-200 bg-white/50 p-5">
+          <summary class="cursor-pointer font-medium">What is Loop?</summary>
+          <p class="mt-3 text-stone-700 leading-relaxed">
+            Loop is an email-first service that introduces you to one local musician each week based on your goals, style, and availability.
+          </p>
+        </details>
+
+        <details class="rounded-md border border-stone-200 bg-white/50 p-5">
+          <summary class="cursor-pointer font-medium">Is there an app?</summary>
+          <p class="mt-3 text-stone-700 leading-relaxed">
+            No — on purpose. Loop lives in your inbox. Fewer introductions. More room to actually connect.
+          </p>
+        </details>
+
+        <details class="rounded-md border border-stone-200 bg-white/50 p-5">
+          <summary class="cursor-pointer font-medium">How does matching work?</summary>
+          <p class="mt-3 text-stone-700 leading-relaxed">
+            We use your survey answers (location, goals, collaboration style, commitment level, genres/influences) to find good-fit pairings.
+            You’ll typically get one introduction per week.
+          </p>
+        </details>
+
+        <details class="rounded-md border border-stone-200 bg-white/50 p-5">
+          <summary class="cursor-pointer font-medium">Do you share photos?</summary>
+          <p class="mt-3 text-stone-700 leading-relaxed">
+            By default, no. Profiles are text-first so collaboration stays about process and intention, not comparison.
+          </p>
+        </details>
+
+        <details class="rounded-md border border-stone-200 bg-white/50 p-5">
+          <summary class="cursor-pointer font-medium">Can I pause or unsubscribe?</summary>
+          <p class="mt-3 text-stone-700 leading-relaxed">
+            Yes. Every email includes an unsubscribe link. Later we’ll add a “pause” option too.
+          </p>
+        </details>
+
+        <details class="rounded-md border border-stone-200 bg-white/50 p-5">
+          <summary class="cursor-pointer font-medium">How do I contact you?</summary>
+          <p class="mt-3 text-stone-700 leading-relaxed">
+            Email <a class="underline hover:text-stone-900" href="mailto:hello@loop.fm">hello@loop.fm</a>.
+          </p>
+        </details>
+      </main>
+
+      <footer class="border-t border-stone-200 mt-14 pt-10 text-sm text-stone-600">
+        <p>
+          Ready to join? <a class="underline hover:text-stone-900" href="/index.html">Get in the Loop</a>.
+        </p>
+        <p class="mt-4 text-stone-400">Built for musicians. Slow by design.</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Global Loop shimmer: wrap every "Loop" in a shimmer span + scroll-tied phase -->
+  <script>
+    (function () {
+      const SHIMMER_CLASS = "loop-shimmer";
+      const TARGET_WORD = "Loop";
+      const EXCLUDED_TAGS = new Set(["SCRIPT","STYLE","TEXTAREA","INPUT","CODE","PRE"]);
+
+      function wrapTextNodes(node) {
+        if (node.nodeType === Node.TEXT_NODE) {
+          const text = node.nodeValue;
+          if (!text || !text.includes(TARGET_WORD)) return;
+
+          const frag = document.createDocumentFragment();
+          let lastIndex = 0;
+
+          text.replace(new RegExp(`\\b${TARGET_WORD}\\b`, "g"), (match, index) => {
+            if (index > lastIndex) frag.appendChild(document.createTextNode(text.slice(lastIndex, index)));
+            const span = document.createElement("span");
+            span.textContent = match;
+            span.className = SHIMMER_CLASS;
+            frag.appendChild(span);
+            lastIndex = index + match.length;
+          });
+
+          if (lastIndex < text.length) frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+          node.parentNode.replaceChild(frag, node);
+          return;
+        }
+
+        if (node.nodeType === Node.ELEMENT_NODE && !EXCLUDED_TAGS.has(node.tagName)) {
+          [...node.childNodes].forEach(wrapTextNodes);
+        }
+      }
+
+      wrapTextNodes(document.body);
+
+      let ticking = false;
+      function updateShimmer() {
+        const doc = document.documentElement;
+        const scrollTop = doc.scrollTop || document.body.scrollTop;
+        const maxScroll = (doc.scrollHeight - doc.clientHeight) || 1;
+        const t = Math.min(1, Math.max(0, scrollTop / maxScroll));
+        const pos = (t * 200).toFixed(2);
+
+        document.querySelectorAll("." + SHIMMER_CLASS).forEach(el => {
+          el.style.backgroundPosition = `${pos}% 50%`;
+        });
+        ticking = false;
+      }
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) { requestAnimationFrame(updateShimmer); ticking = true; }
+      }, { passive: true });
+
+      updateShimmer();
+    })();
+  </script>
+</body>
+</html>
