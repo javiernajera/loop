@@ -92,274 +92,208 @@
 
         <form id="surveyForm" class="space-y-8">
 
-          <!-- Basics -->
+          <!-- Essentials -->
           <div>
-            <h2 class="text-lg font-medium mb-4">Basics</h2>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1">First name (optional)</label>
-                <input
-                  name="firstName"
-                  type="text"
-                  placeholder="e.g. Javier"
-                  class="w-full px-4 py-3 rounded-md border border-stone-300
-                         focus:outline-none focus:ring-2 focus:ring-stone-400"
-                />
+            <h2 class="text-lg font-medium mb-2">2-minute collab survey</h2>
+            <p class="text-sm text-stone-500 mb-6">
+              We only ask what we use to match you. No photos, no socials, no feed.
+            </p>
+        
+            <!-- Name (optional) -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-stone-700 mb-1">First name (optional)</label>
+              <input name="firstName" type="text" placeholder="e.g. Javier"
+                class="w-full px-4 py-3 rounded-md border border-stone-300 focus:outline-none focus:ring-2 focus:ring-stone-400" />
+            </div>
+        
+            <!-- Genres (required) -->
+            <div class="mb-6">
+              <div class="flex items-baseline justify-between gap-3">
+                <label class="block text-sm font-medium text-stone-700 mb-1">
+                  Your main genres <span class="text-stone-500">(pick up to 4)</span>
+                </label>
+                <p class="text-xs text-stone-500" id="genresHint">0 / 4 selected</p>
               </div>
-
+        
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="genresWrap">
+                <!-- Keep this list broad; search can come later -->
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="hip_hop" class="rounded border-stone-300" />
+                  Hip-hop / Rap
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="rnb" class="rounded border-stone-300" />
+                  R&amp;B / Soul
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="pop" class="rounded border-stone-300" />
+                  Pop
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="indie" class="rounded border-stone-300" />
+                  Indie
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="rock" class="rounded border-stone-300" />
+                  Rock
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="electronic" class="rounded border-stone-300" />
+                  Electronic
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="house" class="rounded border-stone-300" />
+                  House
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="techno" class="rounded border-stone-300" />
+                  Techno
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="latin" class="rounded border-stone-300" />
+                  Latin
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="reggaeton" class="rounded border-stone-300" />
+                  Reggaeton
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="afrobeats" class="rounded border-stone-300" />
+                  Afrobeats
+                </label>
+                <label class="flex items-center gap-2 text-sm text-stone-700">
+                  <input type="checkbox" name="genres" value="experimental" class="rounded border-stone-300" />
+                  Experimental
+                </label>
+              </div>
+        
+              <div class="mt-3">
+                <label class="block text-sm font-medium text-stone-700 mb-1">Other genre (optional)</label>
+                <input name="genre_other" type="text" placeholder="e.g. Lo-fi, Soundtrack, Jazz fusion"
+                  class="w-full px-4 py-3 rounded-md border border-stone-300 focus:outline-none focus:ring-2 focus:ring-stone-400" />
+              </div>
+        
+              <label class="mt-3 flex items-center gap-2 text-sm text-stone-700">
+                <input type="checkbox" name="open_to_adjacent" value="yes" class="rounded border-stone-300" />
+                I’m open to adjacent genres
+              </label>
+            </div>
+        
+            <!-- Goal (required) -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-stone-700 mb-1">What are you looking for right now?</label>
+              <select name="collab_goal" required
+                class="w-full px-4 py-3 rounded-md border border-stone-300 focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white">
+                <option value="">Select…</option>
+                <option value="write_together">Write together</option>
+                <option value="produce">Production help / co-produce</option>
+                <option value="feature_swap">Feature swaps</option>
+                <option value="jam_explore">Jam + explore ideas</option>
+                <option value="finish_tracks">Finish tracks</option>
+              </select>
+            </div>
+        
+            <!-- Commitment signal (required) -->
+            <div class="mb-6">
+              <label class="block text-sm font-medium text-stone-700 mb-1">
+                How active are you in the next 4 weeks?
+              </label>
+              <select name="availability_window" required
+                class="w-full px-4 py-3 rounded-md border border-stone-300 focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white">
+                <option value="">Select…</option>
+                <option value="ready_now">Ready now (this month)</option>
+                <option value="somewhat_active">Somewhat active (1–2 sessions)</option>
+                <option value="browsing">Browsing / not sure yet</option>
+              </select>
+              <p class="text-xs text-stone-500 mt-2">
+                This helps us match you with someone on a similar rhythm.
+              </p>
+            </div>
+        
+            <!-- Connection style (required) -->
+            <div class="mb-2">
+              <label class="block text-sm font-medium text-stone-700 mb-1">What usually feels best when collaborating?</label>
+              <select name="connection_style" required
+                class="w-full px-4 py-3 rounded-md border border-stone-300 focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white">
+                <option value="">Select…</option>
+                <option value="structured">Structured sessions</option>
+                <option value="thoughtful_back_and_forth">Thoughtful back-and-forth</option>
+                <option value="creative_exchange">Deep creative exchange</option>
+                <option value="practical_problem_solving">Practical problem-solving</option>
+                <option value="open_ended_wandering">Open-ended wandering</option>
+                <option value="depends">Depends on the moment</option>
+              </select>
+            </div>
+          </div>
+        
+          <!-- Optional (collapsed) -->
+          <details class="bg-stone-50/60 border border-stone-200 rounded-lg p-4">
+            <summary class="cursor-pointer text-sm font-medium text-stone-700">
+              Optional: improve your match <span class="text-stone-500">(30 seconds)</span>
+            </summary>
+        
+            <div class="mt-4 space-y-5">
+              <!-- Roles (optional, pick up to 2) -->
               <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1">Age range</label>
-                <select
-                  name="ageRange"
-                  required
-                  class="w-full px-4 py-3 rounded-md border border-stone-300
-                         focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-                >
-                  <option value="">Select…</option>
-                  <option value="18-24">18–24</option>
-                  <option value="25-34">25–34</option>
-                  <option value="35-44">35–44</option>
-                  <option value="45-54">45–54</option>
-                  <option value="55+">55+</option>
+                <div class="flex items-baseline justify-between gap-3">
+                  <label class="block text-sm font-medium text-stone-700 mb-1">
+                    What do you bring? <span class="text-stone-500">(pick up to 2)</span>
+                  </label>
+                  <p class="text-xs text-stone-500" id="rolesHint">0 / 2 selected</p>
+                </div>
+        
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="rolesWrap">
+                  <label class="flex items-center gap-2 text-sm text-stone-700">
+                    <input type="checkbox" name="roles" value="vocals" class="rounded border-stone-300" />
+                    Vocals
+                  </label>
+                  <label class="flex items-center gap-2 text-sm text-stone-700">
+                    <input type="checkbox" name="roles" value="producer" class="rounded border-stone-300" />
+                    Producer
+                  </label>
+                  <label class="flex items-center gap-2 text-sm text-stone-700">
+                    <input type="checkbox" name="roles" value="guitar" class="rounded border-stone-300" />
+                    Guitar
+                  </label>
+                  <label class="flex items-center gap-2 text-sm text-stone-700">
+                    <input type="checkbox" name="roles" value="keys" class="rounded border-stone-300" />
+                    Keys / synth
+                  </label>
+                  <label class="flex items-center gap-2 text-sm text-stone-700">
+                    <input type="checkbox" name="roles" value="drums" class="rounded border-stone-300" />
+                    Drums
+                  </label>
+                  <label class="flex items-center gap-2 text-sm text-stone-700">
+                    <input type="checkbox" name="roles" value="mixing" class="rounded border-stone-300" />
+                    Mixing / engineering
+                  </label>
+                </div>
+              </div>
+        
+              <div>
+                <label class="block text-sm font-medium text-stone-700 mb-1">Anything to avoid? (optional)</label>
+                <input name="avoidances" type="text" placeholder="e.g. super late sessions, heavy drinking environments…"
+                  class="w-full px-4 py-3 rounded-md border border-stone-300 focus:outline-none focus:ring-2 focus:ring-stone-400" />
+              </div>
+        
+              <!-- If you truly need “how they found you”, keep it optional -->
+              <div>
+                <label class="block text-sm font-medium text-stone-700 mb-1">How did you find Loop? (optional)</label>
+                <select name="source" class="w-full px-4 py-3 rounded-md border border-stone-300 focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white">
+                  <option value="">(optional)</option>
+                  <option value="friend">A friend</option>
+                  <option value="x">Twitter / X</option>
+                  <option value="instagram">Instagram</option>
+                  <option value="newsletter">Newsletter / blog</option>
+                  <option value="random_link">Random link</option>
+                  <option value="other">Other</option>
                 </select>
               </div>
             </div>
-
-            <div class="mt-4">
-              <label class="block text-sm font-medium text-stone-700 mb-1">What are you looking for?</label>
-              <select
-                name="relationshipGoal"
-                required
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-              >
-                <option value="">Select…</option>
-                <option value="serious">Serious relationship</option>
-                <option value="dating">Dating / getting to know people</option>
-                <option value="friends">Friends / community</option>
-                <option value="not_sure">Not sure yet</option>
-              </select>
-              <p class="text-xs text-stone-500 mt-2">If Loop is purely music-collab for now, we can later rename this to “collab goal.”</p>
-            </div>
-
-            <div class="mt-4">
-              <label class="block text-sm font-medium text-stone-700 mb-1">Where are you based? (optional)</label>
-              <input
-                name="locationGeneral"
-                type="text"
-                placeholder="City / region (general)"
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400"
-              />
-              <p class="text-xs text-stone-500 mt-2">Keep it general (no address).</p>
-            </div>
-          </div>
-
+          </details>
+        
           <hr class="border-stone-200" />
-
-          <!-- Music / collaboration compatibility -->
-          <div>
-            <h2 class="text-lg font-medium mb-4">Collaboration fit</h2>
-
-            <div>
-              <label class="block text-sm font-medium text-stone-700 mb-1">What kind of collaboration do you want most?</label>
-              <select
-                name="collabType"
-                required
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-              >
-                <option value="">Select…</option>
-                <option value="songwriting">Songwriting</option>
-                <option value="production">Production / beats</option>
-                <option value="recording">Recording / engineering</option>
-                <option value="performance">Performance / gigging</option>
-                <option value="jam">Casual jamming</option>
-                <option value="mix">A mix</option>
-              </select>
-            </div>
-
-            <div class="mt-4">
-              <label class="block text-sm font-medium text-stone-700 mb-1">Your role (pick closest)</label>
-              <select
-                name="musicRole"
-                required
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-              >
-                <option value="">Select…</option>
-                <option value="vocalist">Vocalist</option>
-                <option value="producer">Producer</option>
-                <option value="instrumentalist">Instrumentalist</option>
-                <option value="songwriter">Songwriter</option>
-                <option value="rapper">Rapper</option>
-                <option value="dj">DJ</option>
-                <option value="engineer">Engineer</option>
-                <option value="other">Other / hybrid</option>
-              </select>
-            </div>
-
-            <div class="mt-4">
-              <label class="block text-sm font-medium text-stone-700 mb-1">Genres you’re most into (comma-separated)</label>
-              <input
-                name="genres"
-                type="text"
-                placeholder="e.g. indie, trap, house, jazz, corridos…"
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400"
-              />
-            </div>
-
-            <div class="mt-4">
-              <label class="block text-sm font-medium text-stone-700 mb-1">How often do you want to collaborate?</label>
-              <select
-                name="collabFrequency"
-                required
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-              >
-                <option value="">Select…</option>
-                <option value="weekly">Weekly</option>
-                <option value="biweekly">Every other week</option>
-                <option value="monthly">Monthly</option>
-                <option value="ad_hoc">Ad hoc / whenever</option>
-              </select>
-            </div>
-          </div>
-
-          <hr class="border-stone-200" />
-
-          <!-- Personality / communication compatibility -->
-          <div>
-            <h2 class="text-lg font-medium mb-4">Compatibility</h2>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1">Your social energy</label>
-                <select
-                  name="socialEnergy"
-                  required
-                  class="w-full px-4 py-3 rounded-md border border-stone-300
-                         focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-                >
-                  <option value="">Select…</option>
-                  <option value="introvert">More introverted</option>
-                  <option value="ambivert">In the middle</option>
-                  <option value="extrovert">More extroverted</option>
-                </select>
-              </div>
-
-              <div>
-                <label class="block text-sm font-medium text-stone-700 mb-1">Ideal weekend</label>
-                <select
-                  name="weekendStyle"
-                  required
-                  class="w-full px-4 py-3 rounded-md border border-stone-300
-                         focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-                >
-                  <option value="">Select…</option>
-                  <option value="chill">Chill / recharge</option>
-                  <option value="mix">Mix of chill + plans</option>
-                  <option value="out">Out doing stuff</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="mt-4">
-              <label class="block text-sm font-medium text-stone-700 mb-1">When there’s conflict, you tend to…</label>
-              <select
-                name="conflictStyle"
-                required
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-              >
-                <option value="">Select…</option>
-                <option value="talk_now">Talk it out ASAP</option>
-                <option value="cool_down">Need time to cool down first</option>
-                <option value="avoid">Avoid conflict if possible</option>
-                <option value="depends">Depends on the situation</option>
-              </select>
-            </div>
-
-            <div class="mt-4">
-              <label class="block text-sm font-medium text-stone-700 mb-1">What makes you feel valued in a collab?</label>
-              <select
-                name="appreciation"
-                required
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-              >
-                <option value="">Select…</option>
-                <option value="clear_feedback">Clear feedback</option>
-                <option value="reliability">Reliability / showing up</option>
-                <option value="creative_space">Creative freedom</option>
-                <option value="recognition">Credit / recognition</option>
-                <option value="good_vibes">Good vibes</option>
-              </select>
-            </div>
-
-            <div class="mt-4">
-              <label class="block text-sm font-medium text-stone-700 mb-1">Pick up to 3 values that matter most</label>
-              <p class="text-xs text-stone-500 mb-2">On desktop: hold Ctrl/Cmd to select multiple.</p>
-              <select
-                id="valuesTop"
-                name="valuesTop"
-                multiple
-                size="8"
-                required
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400 bg-white"
-              >
-                <option value="honesty">Honesty</option>
-                <option value="kindness">Kindness</option>
-                <option value="ambition">Ambition</option>
-                <option value="curiosity">Curiosity</option>
-                <option value="humor">Humor</option>
-                <option value="stability">Stability</option>
-                <option value="adventure">Adventure</option>
-                <option value="creativity">Creativity</option>
-                <option value="community">Community</option>
-                <option value="growth">Growth</option>
-              </select>
-            </div>
-
-            <div class="mt-4">
-              <label class="block text-sm font-medium text-stone-700 mb-1">Non-negotiables / dealbreakers (optional)</label>
-              <textarea
-                name="dealbreakers"
-                rows="3"
-                placeholder="e.g., must communicate clearly, no flaking, respectful feedback…"
-                class="w-full px-4 py-3 rounded-md border border-stone-300
-                       focus:outline-none focus:ring-2 focus:ring-stone-400"
-              ></textarea>
-            </div>
-          </div>
-
-          <hr class="border-stone-200" />
-
-          <!-- Fun prompt -->
-          <div>
-            <h2 class="text-lg font-medium mb-4">Fun (helps matching prompts)</h2>
-
-            <label class="block text-sm font-medium text-stone-700 mb-1">Two truths and a lie (optional)</label>
-            <textarea
-              name="twoTruths"
-              rows="3"
-              placeholder="1) …  2) …  3) …"
-              class="w-full px-4 py-3 rounded-md border border-stone-300
-                     focus:outline-none focus:ring-2 focus:ring-stone-400"
-            ></textarea>
-
-            <label class="block text-sm font-medium text-stone-700 mb-1 mt-4">Anything else we should know? (optional)</label>
-            <textarea
-              name="extra"
-              rows="3"
-              class="w-full px-4 py-3 rounded-md border border-stone-300
-                     focus:outline-none focus:ring-2 focus:ring-stone-400"
-            ></textarea>
-          </div>
-
+        
           <!-- Consent -->
           <div class="flex items-start gap-3">
             <input id="consent" name="consent" type="checkbox" value="yes" required class="mt-1" />
@@ -367,18 +301,15 @@
               I confirm I’m 18+ and I consent to my responses being used to improve matching.
             </label>
           </div>
-
+        
           <!-- Submit -->
           <div class="pt-2">
-            <button
-              type="submit"
-              class="w-full sm:w-auto px-6 py-3 rounded-md bg-stone-900 text-stone-50
-                     hover:bg-stone-800 transition"
-            >
-              Submit survey
+            <button type="submit"
+              class="w-full sm:w-auto px-6 py-3 rounded-md bg-stone-900 text-stone-50 hover:bg-stone-800 transition">
+              Submit
             </button>
           </div>
-        </form>
+        </form>                
       </section>
 
       <p class="mt-6 text-sm text-stone-500">
@@ -396,68 +327,119 @@
 
     </div>
   </div>
-
-  <!-- Survey submit (same style as index submit script) -->
   <script>
-    // 🔧 Replace with your SURVEY SUBMIT Lambda Function URL
     const SURVEY_FUNCTION_URL =
       "https://bqlrerkoqmwfrh3bq6bf5abz7e0pemvy.lambda-url.us-east-1.on.aws/";
-
+  
     const form = document.getElementById("surveyForm");
     const statusMsg = document.getElementById("statusMsg");
-
+  
     const params = new URLSearchParams(window.location.search);
-    const token = params.get("t");
-
+    const token = params.get("token");
+    const email = params.get("email") || "";
+  
+    // desired signals UI helpers
+    const signalsHint = document.getElementById("signalsHint");
+    const signalsWrap = document.getElementById("signalsWrap");
+  
+    function getDesiredSignals() {
+      return Array.from(document.querySelectorAll('input[name="desired_signals"]:checked'))
+        .map(cb => cb.value);
+    }
+  
+    function updateSignalsHint() {
+      const n = getDesiredSignals().length;
+      if (signalsHint) signalsHint.textContent = `${n} / 2 selected`;
+    }
+  
+    if (signalsWrap) {
+      signalsWrap.addEventListener("change", (e) => {
+        const selected = getDesiredSignals();
+        if (selected.length > 2) {
+          // undo last check if we went over 2
+          e.target.checked = false;
+        }
+        updateSignalsHint();
+      });
+      updateSignalsHint();
+    }
+  
+    console.log("Survey href:", window.location.href);
+    console.log("Parsed:", { token, email });
+  
     if (!token) {
       statusMsg.textContent = "Missing token. Please use the survey link from your email.";
       form.style.display = "none";
+    } else {
+      statusMsg.textContent = "";
     }
-
-    function getMultiSelectValues(selectEl) {
-      return Array.from(selectEl.selectedOptions).map(o => o.value);
-    }
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      statusMsg.textContent = "Submitting your answers…";
-
-      const raw = Object.fromEntries(new FormData(form).entries());
-
-      // normalize multiselect
-      raw.valuesTop = getMultiSelectValues(document.getElementById("valuesTop"));
-
-      try {
-        const res = await fetch(SURVEY_FUNCTION_URL, {
-          method: "POST",
-          mode: "cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token, answers: raw })
-        });
-
-        const text = await res.text();
-        let data = {};
-        try { data = text ? JSON.parse(text) : {}; } catch { data = {}; }
-
-        if (!res.ok) {
-          statusMsg.textContent = data.error || `Server error (${res.status})`;
+  
+    if (token) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+  
+        statusMsg.textContent = "Submitting your answers…";
+  
+        const raw = Object.fromEntries(new FormData(form).entries());
+  
+        // Convert desired_signals into array
+        const desired_signals = getDesiredSignals();
+        if (desired_signals.length === 0) {
+          statusMsg.textContent = "Pick at least 1 signal (up to 2).";
           return;
         }
-
-        if (data.ok === false) {
-          statusMsg.textContent = data.error || "Something went wrong.";
+        if (desired_signals.length > 2) {
+          statusMsg.textContent = "Pick up to 2 signals.";
           return;
         }
-
-        // Success: redirect or show thanks state
-        window.location.href = `/thanks.html`;
-
-      } catch (err) {
-        statusMsg.textContent = `Network error: ${err?.message || err}`;
-      }
-    });
-  </script>
-
+  
+        // Optional: normalize empty strings to nulls (keeps Dynamo cleaner)
+        function nullify(v) {
+          if (v === undefined || v === null) return null;
+          const s = String(v).trim();
+          return s === "" ? null : s;
+        }
+  
+        const answers = {
+          firstName: nullify(raw.firstName),
+          source: raw.source,
+          pause_reason: nullify(raw.pause_reason),
+          orientation: raw.orientation,
+          desired_signals,
+          cadence: raw.cadence,
+          attention_bias: nullify(raw.attention_bias),
+          connection_style: raw.connection_style,
+          anti_signal: nullify(raw.anti_signal),
+          never_forget: nullify(raw.never_forget),
+          consent: raw.consent === "yes",
+          submitted_at: new Date().toISOString()
+        };
+  
+        try {
+          const res = await fetch(SURVEY_FUNCTION_URL, {
+            method: "POST",
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ token, email, answers })
+          });
+  
+          const text = await res.text();
+          let data = {};
+          try { data = text ? JSON.parse(text) : {}; } catch { data = {}; }
+  
+          if (!res.ok || data.ok === false) {
+            statusMsg.textContent = data.error || data.message || `Server error (${res.status})`;
+            console.error("Survey submit failed:", { status: res.status, text, data });
+            return;
+          }
+  
+          window.location.href = "/thanks.html";
+        } catch (err) {
+          console.error(err);
+          statusMsg.textContent = `Network error: ${err?.message || err}`;
+        }
+      });
+    }
+  </script>  
 </body>
 </html>
